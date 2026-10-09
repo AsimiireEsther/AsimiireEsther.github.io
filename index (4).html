@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Esther Asiimire Bagombeka</title>
+<meta name="description" content="Esther Asiimire Bagombeka is a data and business analyst who builds data collection tools, automates workflows and turns data into decisions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one 1080px column. The hero pairs an intro with a "field record" card styled like a survey submission, followed by stacked sections that each have a left label rail. */
+:root{
+  --bg:#f6f8f7; --surface:#ffffff; --fg:#14222b; --muted:#56656e; --line:#d9e1df;
+  --ink:#0f4c5c; --accent:#c9861a; --chip:#e6efed;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e171c; --surface:#142128; --fg:#e7eef0; --muted:#9aabb2; --line:#24363e;
+  --ink:#6fc3cf; --accent:#e9a84a; --chip:#1b2c33; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#0e171c; --surface:#142128; --fg:#e7eef0; --muted:#9aabb2; --line:#24363e;
+  --ink:#6fc3cf; --accent:#e9a84a; --chip:#1b2c33; color-scheme:dark }
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-underline-offset:3px;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.mark{font:700 17px/1 var(--display);color:var(--fg);text-decoration:none;letter-spacing:-.01em}
+.mark span{color:var(--accent)}
+.nav ul{display:flex;gap:clamp(12px,3vw,28px);list-style:none;margin:0;padding:0;font-size:14px}
+.nav ul a{color:var(--muted);text-decoration:none}
+.nav ul a:hover{color:var(--fg)}
+@media (max-width:560px){.nav ul li:nth-child(n+3){display:none}}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.25fr .95fr;gap:clamp(28px,5vw,64px);align-items:center;padding-block:clamp(48px,9vw,104px) clamp(40px,7vw,80px)}
+.hero>*{min-width:0}
+.eyebrow{font:500 12px/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink)}
+h1{font:800 clamp(40px,6.4vw,72px)/1.0 var(--display);letter-spacing:-.03em;margin:14px 0 22px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--ink)}
+.lede{font-size:clamp(17px,1.9vw,19px);color:var(--muted);max-width:34em;margin:0 0 28px}
+.lede strong{color:var(--fg);font-weight:500}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:500 15px/1 var(--body);padding:13px 18px;border-radius:999px;text-decoration:none;border:1px solid var(--line);color:var(--fg);background:var(--surface);cursor:pointer}
+.btn.primary{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.btn:hover{border-color:var(--ink)}
+
+/* field record card */
+.record{background:var(--surface);border:1px solid var(--line);border-radius:14px;font:400 13.5px/1.5 var(--mono);overflow:hidden;box-shadow:0 1px 0 var(--line),0 18px 40px -28px color-mix(in srgb,var(--ink) 55%,transparent)}
+.record header{display:flex;justify-content:space-between;gap:12px;padding:12px 16px;border-bottom:1px solid var(--line);color:var(--muted);font-size:12px}
+.record header b{color:var(--accent);font-weight:500}
+.record dl{margin:0;padding:6px 16px 14px;display:grid;grid-template-columns:auto 1fr;column-gap:16px}
+.record dt{color:var(--muted);padding-block:9px;border-bottom:1px dashed var(--line);white-space:nowrap}
+.record dd{margin:0;padding-block:9px;border-bottom:1px dashed var(--line);color:var(--fg);min-width:0}
+.record dt:nth-last-of-type(1),.record dd:last-of-type{border-bottom:0}
+.status{display:inline-flex;align-items:center;gap:8px}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 22%,transparent)}
+
+/* sections */
+section.block{display:grid;grid-template-columns:180px 1fr;gap:clamp(20px,4vw,48px);padding-block:clamp(48px,7vw,80px);border-top:1px solid var(--line)}
+section.block>*{min-width:0}
+.rail h2{font:700 13px/1.3 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink);margin:6px 0 0;position:sticky;top:calc(env(safe-area-inset-top,0px) + 76px)}
+h3{font:700 22px/1.2 var(--display);letter-spacing:-.015em;margin:0;text-wrap:balance}
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr}
+  section.block{grid-template-columns:1fr;gap:20px}
+  .rail h2{position:static}
+}
+
+/* projects */
+.projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.proj{display:flex;flex-direction:column;gap:12px;padding:22px;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+.proj.feature{grid-column:1/-1}
+.proj .kind{font:500 11.5px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.proj p{margin:0;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:4px}
+.tag{font:400 12px/1 var(--mono);padding:6px 9px;border-radius:6px;background:var(--chip);color:var(--fg)}
+.links{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14.5px;font-weight:500}
+@media (max-width:640px){.projects{grid-template-columns:1fr}}
+
+/* publications */
+.pubs{display:grid;gap:36px}
+.pub{display:flex;flex-direction:column;gap:10px;max-width:46em}
+.pub .kind{font:500 11.5px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.pub h3 a{color:var(--fg);text-decoration:none}
+.pub h3 a:hover{color:var(--ink);text-decoration:underline}
+.pub p{margin:0;color:var(--muted)}
+.pub .authors{color:var(--fg);font-size:15px}
+.pub .tags{padding-top:6px}
+
+/* experience */
+.jobs{display:grid;gap:36px}
+.job{display:grid;grid-template-columns:150px 1fr;gap:20px}
+.job>*{min-width:0}
+.when{font:400 13px/1.5 var(--mono);color:var(--muted);padding-top:4px;font-variant-numeric:tabular-nums}
+.when span{display:block;color:var(--ink)}
+.org{color:var(--muted);margin:4px 0 10px;font-size:15px}
+.job ul{margin:0;padding-left:18px;display:grid;gap:6px}
+.job li::marker{color:var(--accent)}
+@media (max-width:560px){.job{grid-template-columns:1fr;gap:6px}}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.skills h3{font-size:17px;margin-bottom:12px}
+@media (max-width:760px){.skills{grid-template-columns:1fr}}
+
+/* education */
+.edu{display:grid;gap:0}
+.edu-row{display:grid;grid-template-columns:1fr auto;gap:8px 24px;padding-block:16px;border-bottom:1px solid var(--line)}
+.edu-row:first-child{padding-top:0}
+.edu-row>*{min-width:0}
+.edu-row h3{font-size:19px}
+.edu-row p{margin:2px 0 0;color:var(--muted)}
+.edu-row .when{text-align:right}
+.certs{margin-top:28px}
+.certs h3{font-size:17px;margin-bottom:12px}
+
+/* contact */
+.contact{padding-block:clamp(56px,8vw,96px);border-top:1px solid var(--line)}
+.contact h2{font:800 clamp(32px,5vw,52px)/1.05 var(--display);letter-spacing:-.025em;margin:0 0 14px;text-wrap:balance}
+.contact p{color:var(--muted);max-width:36em;margin:0 0 26px}
+.email{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.email code{font:500 clamp(16px,2.4vw,20px)/1.3 var(--mono);color:var(--fg);user-select:all;overflow-wrap:anywhere}
+.copied{font:400 13px var(--mono);color:var(--ink)}
+footer{padding-block:24px 40px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+
+/* Editorial portfolio refresh */
+:root,:root[data-theme="dark"]{--bg:#f7f5ef;--surface:#fffefa;--fg:#292329;--muted:#68636a;--line:#dfdcd5;--ink:#624559;--accent:#a85e38;--chip:#eeeae5;color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#f7f5ef;--surface:#fffefa;--fg:#292329;--muted:#68636a;--line:#dfdcd5;--ink:#624559;--accent:#a85e38;--chip:#eeeae5;color-scheme:light}}
+body{font-size:16px;line-height:1.75}::selection{background:#e6d6e0}
+.wrap{max-width:1240px;padding-inline:clamp(22px,5vw,64px)}
+.skip{position:absolute;top:-100px;left:20px;z-index:10;background:var(--surface);padding:12px}.skip:focus{top:12px}
+.nav{background:rgba(247,245,239,.94);backdrop-filter:blur(16px)}.nav .wrap{padding-block:23px}.mark{font-size:19px}.nav ul{gap:30px}.nav ul a{font-size:13px}.nav ul li:last-child a{border:1px solid var(--line);padding:9px 16px;border-radius:6px;color:var(--fg)}
+.hero{grid-template-columns:1.25fr 1fr;gap:64px;padding-block:80px 76px}.eyebrow{font:500 11px/1.5 var(--mono);letter-spacing:.14em}.hero .eyebrow{display:flex;align-items:center;gap:10px}.hero .eyebrow:before{content:"";width:7px;height:7px;background:var(--accent);border-radius:50%}
+h1{font-size:clamp(46px,6.1vw,78px);line-height:1.06;letter-spacing:-.055em;margin:24px 0}h1 em{font-family:Georgia,serif;font-weight:400;font-style:italic;letter-spacing:-.05em}.lede{font-size:17px;line-height:1.8;max-width:28em;margin-bottom:30px}.btn{border-radius:6px;padding:16px 22px;font-size:14px;transition:transform .2s,background .2s}.btn:hover{transform:translateY(-2px)}.btn.primary{color:white;background:var(--ink)}
+.record{border:0;border-radius:16px;background:#eeebe5;box-shadow:none;font-family:var(--body)}.record-art{height:265px;background:#e5dfe6;position:relative;overflow:hidden;display:grid;place-items:center}.art-label,.art-note{position:absolute;left:24px;font:10px var(--mono);letter-spacing:.12em;color:#624559;z-index:2}.art-label{top:23px}.art-note{bottom:23px;text-transform:uppercase}.orbit{position:absolute;width:270px;height:160px;border:1px solid #9e879c;border-radius:50%;transform:rotate(-35deg)}.o2{transform:rotate(35deg)}.o3{transform:rotate(90deg);width:235px;height:160px}.art-core{font:italic 100px Georgia,serif;color:#624559;z-index:1;line-height:1}.art-core span{color:#a85e38}.record header{padding:20px 24px;font-size:13px;color:var(--fg)}.record header b{font:9px var(--mono);align-self:center}.record dl{padding:6px 24px 20px;column-gap:18px}.record dt{font:11px var(--mono);padding-block:12px}.record dd{font-size:12px;padding-block:9px}.status{font-size:12px}.status:before{background:#6f805f;box-shadow:none;width:6px;height:6px}
+.about{display:grid;grid-template-columns:1fr 1.65fr;gap:70px;padding:46px 0 64px;border-top:1px solid var(--line)}.about h2{font:600 30px/1.2 var(--display);letter-spacing:-.03em;margin:14px 0}.about-copy{font-size:15px;color:var(--muted);margin:0;line-height:1.9}.about-copy strong{color:var(--fg)}
+section.block{grid-template-columns:1fr;gap:30px;padding-block:62px}.rail h2{position:static;font:600 32px/1.2 var(--display);letter-spacing:-.035em;text-transform:none;color:var(--fg);margin:0}.rail{display:flex;align-items:center;gap:16px}.rail:before{content:"";height:1px;width:28px;background:var(--accent)}
+.projects{gap:20px}.proj{padding:30px;gap:18px;border-radius:12px;transition:transform .2s,box-shadow .2s}.proj:hover{transform:translateY(-3px);box-shadow:0 10px 25px #29232908}.proj.feature{background:#624559;color:white;border:0;position:relative;padding:38px}.proj.feature h3{font-size:32px;max-width:650px}.proj.feature p{color:#ede4eb;max-width:760px}.proj.feature .kind{color:#e5c6ae}.proj.feature a{color:white}.proj.feature .tag{background:#ffffff14;color:#f7f5ef;border-color:#ffffff20}.proj h3{font-size:23px;line-height:1.3}.proj p{font-size:14px;line-height:1.85}.proj .kind,.pub .kind{font-size:10px;line-height:1.7}.tag{background:transparent;border:1px solid var(--line);font-family:var(--body);font-size:11px;border-radius:4px;padding:7px 10px}.tags{gap:7px}.links{font-size:13px}.pubs{grid-template-columns:1.55fr 1fr;gap:24px}.pub{padding:30px;background:var(--surface);border:1px solid var(--line);border-radius:12px;gap:16px}.pub h3{font-size:22px;line-height:1.4}.pub p{font-size:14px}.pub .authors{font-size:12px}
+.jobs{gap:0}.job{grid-template-columns:205px 1fr;padding:28px 0;border-bottom:1px solid var(--line)}.job:first-child{padding-top:0}.job:last-child{border:0;padding-bottom:0}.job h3{font-size:22px}.job ul{font-size:14px;color:var(--muted);max-width:760px}.when{font-size:11px}.when span{font-size:12px;margin-bottom:5px}.org{font-size:13px}.skills{gap:20px}.skills>div{background:#eeebe5;padding:26px;border-radius:10px}.skills h3{font-size:19px;line-height:1.4}.edu-row{padding-block:23px}.edu-row h3{font-size:21px}.edu-row p{font-size:14px}
+.contact{background:#e5dfe6;border:0;border-radius:16px;padding:50px;margin:14px 0 64px;position:relative}.contact h2{font-size:clamp(36px,5vw,60px)}.contact p{font-size:15px;max-width:580px}.contact-mail{margin-bottom:26px}.email code{font-family:var(--body);font-size:15px}.email .btn{padding:10px 14px;background:transparent;font-size:11px;border-color:#c5b8c5}footer .wrap{display:flex;justify-content:space-between}section[id]{scroll-margin-top:100px}
+@media(max-width:900px){.hero{gap:30px}.record-art{height:230px}.pubs{grid-template-columns:1fr}.about{gap:30px}.hero{padding-top:56px}.nav ul{gap:18px}}
+@media(max-width:760px){.hero{grid-template-columns:1fr;gap:40px}.record{max-width:560px;width:100%}.record-art{height:240px}.about{grid-template-columns:1fr;gap:24px}.skills{grid-template-columns:1fr}.job{grid-template-columns:155px 1fr}.nav .wrap{padding-block:18px}.nav ul li:nth-child(3){display:none}.hero{padding-bottom:48px}h1{font-size:clamp(46px,9vw,68px)}}
+@media(max-width:560px){.nav ul li:nth-child(n+2){display:none}.nav ul li:last-child{display:block}.mark{font-size:15px}.nav ul{gap:12px}.projects{grid-template-columns:1fr}.proj,.proj.feature{padding:25px}.proj.feature h3{font-size:27px}.job{grid-template-columns:1fr;gap:12px}.contact{padding:30px 24px}.edu-row{grid-template-columns:1fr}.edu-row .when{text-align:left}.record dt{white-space:normal}.record dl{grid-template-columns:78px 1fr}.rail h2{font-size:28px}section.block{padding-block:44px}.pub{padding:25px}.email{gap:10px}.hero{padding-top:40px}.hero .eyebrow{font-size:10px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;scroll-behavior:auto!important}}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#top">Skip to content</a>
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="mark" href="#top">Esther A. Bagombeka<span>.</span></a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#publications">Research</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="wrap" id="top">
+  <header class="hero">
+    <div>
+      <div class="eyebrow">Data analyst · Business analyst</div>
+      <h1>Good data.<br>Clear stories.<br><em>Better decisions.</em></h1>
+      <p class="lede">I build tools, uncover insights, and turn complex data into clear decisions. Working at the intersection of analytics, technology, and social impact.</p>
+      <div class="actions">
+        <a class="btn primary" href="#work">See my work</a>
+        <a class="btn" href="https://github.com/AsimiireEsther" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+
+    <aside class="record" aria-label="Profile summary">
+      <div class="record-art" aria-hidden="true"><span class="art-label">FROM INFORMATION TO IMPACT</span><div class="orbit o1"></div><div class="orbit o2"></div><div class="orbit o3"></div><div class="art-core">e<span>.</span></div><span class="art-note">Collect. Connect. Understand.</span></div><header><span>Esther Asiimire Bagombeka</span><b>PROFILE / 01</b></header>
+      <dl>
+        <dt>name</dt><dd>Esther Asiimire Bagombeka</dd>
+        <dt>based_in</dt><dd>Worcester, MA · Kampala, UG</dd>
+        <dt>focus</dt><dd>Data collection tools, process automation, analysis</dd>
+        <dt>tools</dt><dd>Python, R, SQL, Looker, Power BI, KoboToolbox</dd>
+        <dt>languages</dt><dd>Python, Java, JavaScript, R</dd>
+        <dt>status</dt><dd><span class="status">Open to roles from Jan 2027</span></dd>
+      </dl>
+    </aside>
+  </header>
+
+  <section class="about" aria-labelledby="about-h"><div><span class="eyebrow">A little about me</span><h2 id="about-h">Curiosity meets<br>real-world impact.</h2></div><div>      <p class="about-copy">I'm Esther, a data and business analyst who works across the whole data pipeline. I build the digital tools that collect the data, automate the processes around them, and turn the results into clear stories and dashboards. They help organizations understand what is happening and decide what to do next. My work has guided childcare policy research in Uganda and growth plans for small businesses in Worcester. Because I come from computer science, I can build a custom tool when the off-the-shelf one doesn't fit, and I've co-authored published research on machine learning for solar power prediction. I'm finishing an <strong>MSc in Business Analytics at Clark University</strong>.</p></div></section>
+  <section class="block" id="work" aria-labelledby="work-h">
+    <div class="rail"><h2 id="work-h">Selected work</h2></div>
+    <div class="projects">
+      <article class="proj feature">
+        <div class="kind">Policy research · Ace Policy Research Institute</div>
+        <h3>Early Childhood Education Access Analysis, Uganda</h3>
+        <p>I analyzed large household datasets to find where families need childcare and how much demand each center could expect. The work produced heatmaps, behavioral insights and demand projections, delivered as dashboards in Looker and Python. I also built the KoboToolbox and Google Apps Script tools the field teams used to collect the data.</p>
+        <div class="links"><a href="https://apriug.org/infographics/" target="_blank" rel="noopener">View APRI infographics ↗</a></div>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Looker</span><span class="tag">KoboToolbox</span><span class="tag">Apps Script</span><span class="tag">Heatmaps</span></div>
+      </article>
+
+      <article class="proj">
+        <div class="kind">MSc Data Science research · Uganda Christian University</div>
+        <h3>Forecasting Human Rights Violations with SARIMA and RNN Models</h3>
+        <p>My master's research compares a classical seasonal model (SARIMA) with a recurrent neural network for forecasting reported human rights violations over time.</p>
+        <div class="tags"><span class="tag">SARIMA</span><span class="tag">RNN</span><span class="tag">Python</span></div>
+      </article>
+
+      <article class="proj">
+        <div class="kind">Machine learning · Presented at NEDSI</div>
+        <h3>Predictive Modeling for Bank Marketing Campaign Optimization</h3>
+        <p>This project builds classification models that predict which customers will respond to a bank's marketing campaign, so outreach can focus on the likeliest prospects. It was selected for presentation at the Northeast Decision Sciences Institute (NEDSI) conference.</p>
+        <div class="tags"><span class="tag">Classification</span><span class="tag">Python</span></div>
+      </article>
+
+      <article class="proj">
+        <div class="kind">Report design · DefendDefenders</div>
+        <h3>Human rights reports</h3>
+        <p>I did the layout and visual design for published research reports on the situation of human rights defenders in East and the Horn of Africa.</p>
+        <div class="links">
+          <a href="https://defenddefenders.org/rocky-ground-shifting-sands/" target="_blank" rel="noopener">Rocky Ground, Shifting Sands ↗</a>
+          <a href="https://defenddefenders.org/pushing-boundaries/" target="_blank" rel="noopener">Pushing Boundaries ↗</a>
+        </div>
+        <div class="tags"><span class="tag">InDesign</span><span class="tag">Photoshop</span></div>
+      </article>
+
+      <article class="proj">
+        <div class="kind">Digital campaigns · DefendDefenders</div>
+        <h3>Social media content</h3>
+        <p>I made posts and multimedia content for advocacy campaigns and events, and used social media analytics to track reach.</p>
+        <div class="links">
+          <a href="https://x.com/DefendDefenders/status/1732048222640803988" target="_blank" rel="noopener">Sample post 1 ↗</a>
+          <a href="https://x.com/DefendDefenders/status/1775140190148829246" target="_blank" rel="noopener">Sample post 2 ↗</a>
+        </div>
+        <div class="tags"><span class="tag">Canva</span><span class="tag">Premiere Pro</span><span class="tag">CapCut</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="block" id="publications" aria-labelledby="pub-h">
+    <div class="rail"><h2 id="pub-h">Research &amp; presentations</h2></div>
+    <div class="pubs">
+    <article class="pub">
+      <div class="kind">Research paper · SSRN · August 2026 · 17 pages</div>
+      <h3><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7220739" target="_blank" rel="noopener">Predictive Analysis of Alternating Current (AC) Power Output Using Environmental Variables with Artificial Intelligence ↗</a></h3>
+      <p class="authors">Hwindingwi, T., Mubayiwa, B., <strong>Bagombeka, E.</strong>, &amp; Ngwarati, F.</p>
+      <p>The study compares four machine learning models (linear, polynomial and spline regression, and K-nearest neighbors) for predicting the AC power output of solar PV inverters. The models use irradiation, ambient and module temperature, and time of day. The data is 68,978 observations recorded at 15-minute intervals from a real solar installation.</p>
+      <div class="tags"><span class="tag">Machine learning</span><span class="tag">Regression</span><span class="tag">KNN</span><span class="tag">Renewable energy</span></div>
+    </article>
+    <article class="pub">
+      <div class="kind">Conference presentation · NEDSI</div>
+      <h3>Predictive Modeling for Bank Marketing Campaign Optimization</h3>
+      <p>This project was selected for presentation at the Northeast Decision Sciences Institute (NEDSI) conference. It uses classification models to predict which customers will respond to a bank's marketing campaign.</p>
+    </article>
+    </div>
+  </section>
+
+  <section class="block" id="experience" aria-labelledby="exp-h">
+    <div class="rail"><h2 id="exp-h">Experience</h2></div>
+    <div class="jobs">
+      <article class="job">
+        <div class="when"><span>Jan 2026 – present</span>Worcester, MA</div>
+        <div>
+          <h3>Business Analyst</h3>
+          <p class="org">Small Business Development Center, Clark University</p>
+          <ul>
+            <li>Conduct market research and competitor analysis for small businesses.</li>
+            <li>Help clients develop brand identities and marketing strategies.</li>
+            <li>Analyze business data to document how organizations' processes flow.</li>
+            <li>Give clients recommendations for improvement and growth.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="job">
+        <div class="when"><span>Dec 2024 – Aug 2025</span>Kampala</div>
+        <div>
+          <h3>Data Scientist &amp; IT</h3>
+          <p class="org">Ace Policy Research Institute</p>
+          <ul>
+            <li>Gathered project requirements and automated research workflows with KoboToolbox, Google Forms and Apps Script, which improved the accuracy of field data.</li>
+            <li>Analyzed large household datasets to produce heatmaps, behavioral insights and childcare demand projections, with dashboards in Looker and Python.</li>
+            <li>Joined data from several sources in Python and found correlations that strengthened the institute's policy recommendations.</li>
+            <li>Wrote analytics and narrative sections for donor proposals.</li>
+            <li>Managed the WordPress website, the databases and the cloud storage tools.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="job">
+        <div class="when"><span>2021 – Nov 2024</span>Kampala</div>
+        <div>
+          <h3>Communications Assistant</h3>
+          <p class="org">DefendDefenders</p>
+          <ul>
+            <li>Managed the organization's website with WordPress, HTML/CSS and JavaScript.</li>
+            <li>Produced multimedia content in Photoshop, Premiere Pro, InDesign, Canva and CapCut to increase reach for events and on social media.</li>
+            <li>Ran ICT and digital-skills trainings for partners on Google Workspace, Mailchimp and social media analytics.</li>
+            <li>Coordinated planning, budgeting and reporting, and maintained the knowledge-management systems.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="job">
+        <div class="when"><span>Jul – Oct 2023</span>Kampala</div>
+        <div>
+          <h3>Community Engagement Consultant</h3>
+          <p class="org">Innovation for Change – Africa</p>
+          <ul>
+            <li>Led a three-month digital awareness campaign that increased engagement, guided by social media analytics.</li>
+            <li>Built a community engagement strategy based on data-driven audience segmentation.</li>
+            <li>Produced videos, infographics and podcasts, and designed the campaign's branded visuals.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="job">
+        <div class="when"><span>May – Aug 2021</span>Kinshasa, DRC</div>
+        <div>
+          <h3>Software Developer Consultant</h3>
+          <p class="org">Consultant Solution Africa Sarl</p>
+          <ul>
+            <li>Helped build backend services for a farmers' e-commerce platform with Java Spring, Angular, REST APIs and Docker.</li>
+            <li>Built a cross-platform mobile app in Flutter.</li>
+            <li>Did QA, testing and debugging, and presented the solution to stakeholders.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="job">
+        <div class="when"><span>Aug 2019 – Mar 2021</span>Kampala</div>
+        <div>
+          <h3>Software Developer</h3>
+          <p class="org">Integrated Intelligent Computer Systems Technologies (IICS)</p>
+          <ul>
+            <li>Developed hospital information system modules in Java, Spring and PostgreSQL.</li>
+            <li>Designed and optimized PostgreSQL databases.</li>
+            <li>Wrote requirements and system documentation with UML, and built front ends in HTML5, Bootstrap and JavaScript.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="block" id="skills" aria-labelledby="skills-h">
+    <div class="rail"><h2 id="skills-h">Skills</h2></div>
+    <div class="skills">
+      <div>
+        <h3>Data &amp; analytics</h3>
+        <div class="tags"><span class="tag">Python</span><span class="tag">R</span><span class="tag">SQL</span><span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">Power BI</span><span class="tag">Tableau</span><span class="tag">Looker</span><span class="tag">KNIME</span></div>
+      </div>
+      <div>
+        <h3>Engineering &amp; data collection</h3>
+        <div class="tags"><span class="tag">Java Spring</span><span class="tag">JavaScript</span><span class="tag">Docker</span><span class="tag">Git</span><span class="tag">Apps Script</span><span class="tag">KoboToolbox</span><span class="tag">WordPress</span></div>
+      </div>
+      <div>
+        <h3>Design &amp; communication</h3>
+        <div class="tags"><span class="tag">InDesign</span><span class="tag">Photoshop</span><span class="tag">Premiere Pro</span><span class="tag">Lightroom</span><span class="tag">Canva</span><span class="tag">Mailchimp</span><span class="tag">Notion</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="education" aria-labelledby="edu-h">
+    <div class="rail"><h2 id="edu-h">Education</h2></div>
+    <div>
+      <div class="edu">
+        <div class="edu-row"><div><h3>MSc Business Analytics</h3><p>Clark University, Worcester, MA</p></div><div class="when">2025 – 2026</div></div>
+        <div class="edu-row"><div><h3>MSc Data Science</h3><p>Uganda Christian University</p></div><div class="when">2025</div></div>
+        <div class="edu-row"><div><h3>BSc Computer Science</h3><p>International University of East Africa</p></div><div class="when">2019</div></div>
+      </div>
+      <div class="certs">
+        <h3>Certifications &amp; memberships</h3>
+        <div class="tags"><span class="tag">PCEP™ Certified Entry-Level Python Programmer</span><span class="tag">Beta Alpha Psi, lifetime member</span><span class="tag">Hack for Human Impact 2025</span><span class="tag">Power BI Essential Training</span><span class="tag">Intermediate SQL, DataCamp</span><span class="tag">Project Management Foundations</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" aria-labelledby="contact-h">
+    <h2 id="contact-h">Let's work together.</h2>
+    <p>I'm looking for data science, analytics and business analyst roles, especially in research, policy and social impact. I'm available from January 2027.</p>
+    <a class="btn primary contact-mail" href="mailto:asimiire.esther@gmail.com">Say hello ↗</a>
+    <div class="email">
+      <code id="email">asimiire.esther@gmail.com</code>
+      <button class="btn" id="copy" type="button">Copy email</button>
+      <span class="copied" id="copied" aria-live="polite"></span>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Esther Asiimire Bagombeka · Worcester, MA</div>
+</footer>
+
+<script>
+document.getElementById('copy').addEventListener('click', function(){
+  var text = document.getElementById('email').textContent;
+  var msg = document.getElementById('copied');
+  function fallback(){
+    var r = document.createRange(); r.selectNodeContents(document.getElementById('email'));
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    msg.textContent = 'Selected. Press Ctrl+C or ⌘C to copy.';
+  }
+  try {
+    navigator.clipboard.writeText(text).then(function(){ msg.textContent = 'Copied'; }, fallback);
+  } catch(e){ fallback(); }
+});
+</script>
+</body>
+</html>
